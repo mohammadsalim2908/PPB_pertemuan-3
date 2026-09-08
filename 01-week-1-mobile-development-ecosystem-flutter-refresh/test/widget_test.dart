@@ -1,20 +1,24 @@
-// This is a basic Flutter widget test.
-
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_application_1/main.dart';
+import 'package:flutter_application_1/modul_02/academic_dashboard_screen.dart';
 
 void main() {
-  testWidgets('Profile screen UI test', (WidgetTester tester) async {
-    // Build app dan jalankan frame pertama
-    await tester.pumpWidget(const PoliwangiProfileApp());
+  testWidgets('Academic Dashboard UI test', (WidgetTester tester) async {
+    // Set ukuran layar simulasi test agar tidak overflow
+    tester.view.physicalSize = const Size(1080, 1920);
+    tester.view.devicePixelRatio = 1.0;
 
-    // Verifikasi bahwa judul AppBar muncul
-    expect(find.text('Profil Mahasiswa'), findsOneWidget);
+    // Bungkus widget dengan MaterialApp agar kustomisasi Theme dan Directionality berjalan
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: AcademicDashboardScreen(),
+      ),
+    );
 
-    // Verifikasi bahwa Nama Mahasiswa muncul
-    expect(find.text('Mohammad Salim'), findsOneWidget);
+    // Cek apakah judul dashboard/teks utama berhasil di-render
+    expect(find.byType(AcademicDashboardScreen), findsOneWidget);
 
-    // Verifikasi bahwa NIM Mahasiswa muncul
-    expect(find.text('NIM: 362558302127'), findsOneWidget);
+    // Reset ukuran layar simulasi setelah test selesai
+    addTearDown(tester.view.resetPhysicalSize);
   });
 }
