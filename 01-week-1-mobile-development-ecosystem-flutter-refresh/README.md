@@ -1,17 +1,13 @@
-# flutter_application_1
+# Modul 01: Praktikum Flutter & Ecosystem Refresh
 
-A new Flutter project.
+Aplikasi profil mahasiswa sederhana yang dibangun menggunakan Flutter sebagai bagian dari praktikum modul 1.
 
-## Getting Started
+## Deskripsi Aplikasi
+Aplikasi ini menampilkan kartu profil mahasiswa interaktif yang berisi informasi akademik, link repositori GitHub, serta fokus keahlian. Dilengkapi juga dengan tombol verifikasi status yang menampilkan SnackBar.
 
-This project is a starting point for a Flutter application.
+## Screenshot Aplikasi
+![Tampilan Profil Mahasiswa](screenshots/Cuplikan layar 2026-09-08 085435.png)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Kendala Setup dan Solusi
+- **Kendala:** Terjadi error `CrossAlignment isn't defined` saat melakukan Hot Reload dan tampilan tidak kunjung berubah di browser.
+- **Solusi:** Memperbaiki penulisan nama properti yang benar yaitu `CrossAxisAlignment.start` pada widget `_InfoRow` dan melakukan restart kompilasi.
